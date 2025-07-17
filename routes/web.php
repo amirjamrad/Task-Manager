@@ -27,6 +27,14 @@ Route::get('tasks/create',function(){
 });
 
 Route::post('/tasks',function(){
+
+    request()->validate([
+        'title' =>['required','min:3','max:100'],
+        'body' =>['required','min:10'],
+        
+    ]);
+
+
     $task = new App\Models\Task();
     $task->title = request('title');
     $task->body = request('body');
@@ -37,6 +45,12 @@ Route::post('/tasks',function(){
 })->name('tasks.store');
 
 Route::put('/tasks/{id}', function ($id) {
+    request()->validate([
+        'title' => ['required','min:3', 'max:100'],
+        'body' => ['required','min:10']
+    ]);
+
+
    $task = App\Models\Task::findOrFail($id);
    $task->title = request('title');
    $task->body = request('body');

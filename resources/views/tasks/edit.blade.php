@@ -19,12 +19,18 @@
                 <label class="block mb-1 text-gray-300">عنوان</label>
                 <input name="title" value="{{ $task->title }}"
                        class="w-full px-4 py-2 bg-gray-700 text-white rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                 @error('title')
+                    <p dir="ltr" class="text-sm text-red-500 mt-2 ">{{$message}}</p>
+                 @enderror
             </div>
 
             <div>
                 <label class="block mb-1 text-gray-300">توضیحات</label>
                 <textarea name="body" rows="4"
                           class="w-full px-4 py-2 bg-gray-700 text-white rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-500">{{ $task->body }}</textarea>
+                @error('body')
+                    <p dir="ltr" class="text-sm text-red-500 mt-2 ">{{$message}}</p>
+                 @enderror
             </div>
 
             <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center justify-between w-full max-w-md">

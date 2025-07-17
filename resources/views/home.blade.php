@@ -41,11 +41,12 @@
             {{abort(404);}}
             @endif
             </p>
-          <p class="text-gray-400 text-sm mb-4">
+          <p dir="ltr" class="text-gray-400 text-sm mb-4">
             @if($task)
             {{
               
-                  $task->created_at;
+                  
+                  \Morilog\Jalali\Jalalian::fromDateTime($task->created_at)->format('Y/m/d')
             
             }}
             @else
