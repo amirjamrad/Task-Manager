@@ -3,18 +3,20 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
 
+//index
 Route::get('/', function () {
     $tasks = App\Models\Task::all();
 
     return view('home',['tasks'=>$tasks]);
 });
 
-Route::delete('/tasks/{id}', function ($id) {
+//DELETE
+Route::patch('/tasks/{id}', function ($id) {
     App\Models\Task::destroy($id);
-    
     return redirect('/');
 })->name('task.delete');
 
+//Edit
 Route::get('tasks/{id}/edit', function ($id) {
 
     $task = App\Models\Task::findOrFail($id);
@@ -22,16 +24,19 @@ Route::get('tasks/{id}/edit', function ($id) {
 
 })->name('tasks.edit');
 
+
+//Show
 Route::get('tasks/create',function(){
     return view('tasks.create');
-});
+})->name('tasks.create');
 
+//Store
 Route::post('/tasks',function(){
 
     request()->validate([
         'title' =>['required','min:3','max:100'],
         'body' =>['required','min:10'],
-        
+
     ]);
 
 
@@ -44,7 +49,9 @@ Route::post('/tasks',function(){
     return redirect('/');
 })->name('tasks.store');
 
-Route::put('/tasks/{id}', function ($id) {
+
+//Update
+Route::patch('/tasks/{id}', function ($id) {
     request()->validate([
         'title' => ['required','min:3', 'max:100'],
         'body' => ['required','min:10']
@@ -58,7 +65,7 @@ Route::put('/tasks/{id}', function ($id) {
 
    $task->save();
 
-    return redirect('/');
+   return redirect('/');
 })->name('tasks.update');
 
 

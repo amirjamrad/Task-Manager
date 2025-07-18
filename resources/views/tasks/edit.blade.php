@@ -11,9 +11,9 @@
     <div class="bg-gray-800 shadow-lg rounded-xl p-8 w-full max-w-md">
         <h1 class="text-2xl font-bold mb-6 text-yellow-400 text-center">ویرایش تسک</h1>
 
-        <form action="{{ route('tasks.update', $task->id) }}" method="POST" class="space-y-5">
+        <form action="{{ route('tasks.update',$task->id) }}" method="POST" class="space-y-5">
             @csrf
-            @method('PUT')
+            @method('PATCH')
 
             <div>
                 <label class="block mb-1 text-gray-300">عنوان</label>
@@ -35,15 +35,15 @@
 
             <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center justify-between w-full max-w-md">
                 <span class="text-gray-300 text-base font-medium">انجام شده </span>
-            
+
                 <label class="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" name="is_done" id="is_done" value="1" class="sr-only peer" {{ $task->is_done ? 'checked' : '' }}>
                     <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:bg-yellow-500 transition-all duration-300"></div>
                     <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-all duration-300 peer-checked:translate-x-5"></div>
                 </label>
             </div>
-            
-            
+
+
 
             <div class="text-center">
                 <button type="submit"
