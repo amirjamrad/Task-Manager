@@ -80,6 +80,7 @@
 
 
                       <button
+                              onclick="return confirm(' مطمئنی می‌خوای این تسک رو حذف کنی؟')"
                               class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-sm font-semibold">
                           حذف
                       </button>
