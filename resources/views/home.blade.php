@@ -54,7 +54,7 @@
             @endif            </p>
         </div>
 
-          <form action='/tasks/{{$task->id}}' method="POST">
+          <form action='{{route('task.destroy',$task->id)}}' method="POST">
               @csrf
               @method('DELETE')
               <div class="flex items-center justify-between">
@@ -79,7 +79,7 @@
 
 
 
-                      <button form="delete-form"
+                      <button
                               class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-sm font-semibold">
                           حذف
                       </button>

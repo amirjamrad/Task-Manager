@@ -11,10 +11,10 @@ Route::get('/', function () {
 });
 
 //DELETE
-Route::patch('/tasks/{id}', function ($id) {
+Route::delete('/tasks/{id}', function ($id) {
     App\Models\Task::destroy($id);
     return redirect('/');
-})->name('task.delete');
+})->name('task.destroy');
 
 //Edit
 Route::get('tasks/{id}/edit', function ($id) {
