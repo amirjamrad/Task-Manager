@@ -9,7 +9,7 @@ Route::get('/', function () {
     $tasks = Task::all();
 
     return view('home',['tasks'=>$tasks]);
-});
+})->name('task.index');
 
 //DELETE
 Route::delete('/tasks/{task}', function (Task $task) {

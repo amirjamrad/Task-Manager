@@ -16,7 +16,7 @@
     </div>
     <nav>
       <ul class="flex space-x-8 text-lg font-medium">
-        <li><a href="{{route('tasks.create')}}" class="hover:text-yellow-400 transition-colors duration-300">ساخت تسک جدید</a></li>
+        <li><a href="{{route('tasks.create')}}" class="hover:text-yellow-400 transition-colors duration-300">ایجاد تسک </a></li>
         <li><a href="/" class="hover:text-yellow-400 transition-colors duration-300">خانه</a></li>
         <li><p class="text-yellow-400 transition-colors  font-bold duration-300">  Task Manager</p></li>
 

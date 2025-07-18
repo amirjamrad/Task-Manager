@@ -16,9 +16,9 @@
 
             <div>
                 <label class="block mb-1 text-gray-300">عنوان</label>
-                <input name="title" 
+                <input name="title"
                        class="w-full px-4 py-2 bg-gray-700 text-white rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-500">
-            
+
                 @error('title')
                     <p dir="ltr" class="text-sm text-red-500 mt-2 ">{{$message}}</p>
                 @enderror
@@ -31,39 +31,36 @@
                      @error('body')
                           <p dir="ltr" class="text-sm text-red-500 mt-2 ">{{$message}}</p>
                       @enderror
-           
+
                         </div>
 
             <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center justify-between w-full max-w-md">
                 <span class="text-gray-300 text-base font-medium">انجام شده </span>
-            
+
                 <label class="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" name="is_done" id="is_done" value="1" class="sr-only peer" >
                     <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:bg-yellow-500 transition-all duration-300"></div>
                     <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-all duration-300 peer-checked:translate-x-5"></div>
                 </label>
             </div>
-            
-            
 
-            <div class="text-center">
-                <button type="submit"
-                        class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-2 rounded-md shadow-md transition duration-200">
-                   ایجاد تسک
-                </button>
+
+
+
+
+            <div class="flex justify-between">
+                <div class="text-center">
+                    <button type="submit"
+                            class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-2 rounded-md shadow-md transition duration-200">
+                        ایجاد تسک
+                    </button>
+                </div>
+                <div class="text-center mt-2">
+                    <a href="{{ route('task.index') }}" class="bg-gray-300 hover:bg-red-600 text-black font-semibold  px-6 py-2 rounded-md shadow-md transition duration-200">بازگشت</a>
+                </div>
             </div>
 
-            {{-- <div dir="ltr" >
-                @if ($errors->any())
-                    
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li class="text-red-500 italic">{{$error}}</li>
-                        @endforeach
-                    </ul>
-                    
-                @endif
-            </div> --}}
+
         </form>
     </div>
 
