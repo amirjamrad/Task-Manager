@@ -21,7 +21,7 @@ Route::get('/tasks/{task}/edit',[TaskController::class,'edit'])->name('tasks.edi
 Route::patch('tasks/{task}',[TaskController::class,'update'])->name('tasks.update');
 
 //Delete
-Route::delete('tasks/{task}',[TaskController::class,'destroy'])->name('task.destroy');
+Route::delete('tasks/{task}',[TaskController::class,'destroy'])->name('tasks.destroy');
 
 
 

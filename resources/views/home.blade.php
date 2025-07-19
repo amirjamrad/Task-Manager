@@ -23,22 +23,22 @@
               @if($task)
               {{
 
-                    $task->title;
+                    $task->title
 
               }}
               @else
-              {{abort(404);}}
+              {{abort(404)}}
               @endif
             </h2>
           <p class="text-gray-300 mb-4">
             @if($task)
             {{
 
-                  $task->body;
+                  $task->body
 
             }}
             @else
-            {{abort(404);}}
+            {{abort(404)}}
             @endif
             </p>
           <p dir="ltr" class="text-gray-400 text-sm mb-4">
@@ -50,11 +50,11 @@
 
             }}
             @else
-            {{abort(404);}}
+            {{abort(404)}}
             @endif            </p>
         </div>
 
-          <form action='{{route('task.destroy',$task->id)}}' method="POST">
+          <form action='{{route('tasks.destroy',$task->id)}}' method="POST">
               @csrf
               @method('DELETE')
               <div class="flex items-center justify-between">
@@ -90,7 +90,7 @@
               </div>
           </form>
 
-    <form action="/tasks/{{$task->id}}" method="POST" name="delete-form">
+    <form action="{{route('tasks.destroy',$task->id)}}" method="POST" name="delete-form">
         @csrf
         @method('DELETE')
     </form>
