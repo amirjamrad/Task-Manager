@@ -14,25 +14,19 @@
         <form action="{{ route('tasks.store') }}" method="POST" class="space-y-5">
             @csrf
 
-            <div>
-                <label class="block mb-1 text-gray-300">عنوان</label>
-                <input name="title"
-                       class="w-full px-4 py-2 bg-gray-700 text-white rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            <x-form-field>
+                <x-form-label for="title">عنوان</x-form-label>
+                <x-form-input name="title" />
+                <x-form-error name="title"/>
+            </x-form-field>
 
-                @error('title')
-                    <p dir="ltr" class="text-sm text-red-500 mt-2 ">{{$message}}</p>
-                @enderror
-                    </div>
-
-            <div>
-                <label class="block mb-1 text-gray-300">توضیحات</label>
+            <x-form-field>
+                <x-form-label for="body">توضیحات</x-form-label>
                 <textarea name="body" rows="4"
                           class="w-full px-4 py-2 bg-gray-700 text-white rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
-                     @error('body')
-                          <p dir="ltr" class="text-sm text-red-500 mt-2 ">{{$message}}</p>
-                      @enderror
 
-                        </div>
+                <x-form-error name="body"/>
+            </x-form-field>
 
             <div class="bg-gray-800 border border-gray-700 rounded-xl p-4 flex items-center justify-between w-full max-w-md">
                 <span class="text-gray-300 text-base font-medium">انجام شده </span>
@@ -50,13 +44,10 @@
 
             <div class="flex justify-between">
                 <div class="text-center">
-                    <button type="submit"
-                            class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-2 rounded-md shadow-md transition duration-200">
-                        ایجاد تسک
-                    </button>
+                    <x-form-button>ایجاد تسک</x-form-button>
                 </div>
                 <div class="text-center mt-2">
-                    <a href="{{ route('task.index') }}" class="bg-gray-300 hover:bg-red-600 text-black font-semibold  px-6 py-2 rounded-md shadow-md transition duration-200">بازگشت</a>
+                    <x-form-back-button> بازگشت</x-form-back-button>
                 </div>
             </div>
 
