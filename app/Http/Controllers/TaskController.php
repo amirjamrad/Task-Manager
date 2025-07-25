@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -23,12 +24,9 @@ class TaskController extends Controller
 
     public function store(StoreTaskRequest $request)
     {
-        $validatedData = $request->validated();
-        $task = new Task();
-        $task->title = $validatedData->input('title');
-        $task->body = $validatedData->input('body');
-        $task->is_done = $request->has('is_done') ? 1 : 0;
-        $task->save();
+        $data = $request->validated();
+        $data['is_done'] = $request->has('is_done') ? 1 : 0;
+        Task::create($data);
         return redirect()->route('tasks.index');
 
     }
@@ -38,15 +36,12 @@ class TaskController extends Controller
         return view('tasks.edit', ['task' => $task]);
     }
 
-    public function update(Task $task, StoreTaskRequest $request)
+    public function update(Task $task, UpdateTaskRequest $request)
     {
 
-        $validatedData = $request->validated();
-
-        $task->title = $validatedData->input('title');
-        $task->body = $validatedData->input('body');
-        $task->is_done = $request->has('is_done') ? 1 : 0;
-        $task->save();
+        $data = $request->validated();
+        $data['is_done'] = $request->has('is_done') ? 1 : 0;
+        $task->update($data);
         return redirect()->route('tasks.index');
     }
 
