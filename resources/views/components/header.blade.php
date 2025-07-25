@@ -10,17 +10,31 @@
 </head>
 <body >
 
-  <header class="bg-gray-900 text-gray-200 shadow-xl px-6 py-4 flex justify-between items-center border-b-2 border-yellow-400 rounded-xl">
-    <div class="text-2xl  text-yellow-400 ">
+  <header class="bg-gray-900 text-gray-200 shadow-xl px-6 py-4 flex justify-between items-center border-b-2 border-yellow-400 rounded-xl flex justify-between">
 
-    </div>
-    <nav>
-      <ul class="flex space-x-8 text-lg font-medium">
-        <li><a href="{{route('tasks.create')}}" class="hover:text-yellow-400 transition-colors duration-300">ایجاد تسک </a></li>
-        <li><p class="text-yellow-400 transition-colors  font-bold duration-300">  Task Manager</p></li>
+        <div class="text-center mr-5">
+            <nav>
+                <ul class="flex space-x-8 text-lg font-medium">
+                    <li><a href="{{route('register')}}" class="hover:text-yellow-400 transition-colors duration-300">ثبت نام</a></li>
+                    <li><a href="{{route('login')}}" class="hover:text-yellow-400 transition-colors duration-300">ورود</a></li>
 
-      </ul>
-    </nav>
+
+                </ul>
+            </nav>
+        </div>
+
+        <div class="text-center">
+            <nav>
+                <ul class="flex space-x-8 text-lg font-medium">
+                    <li><a href="{{route('tasks.create')}}" class="hover:text-yellow-400 transition-colors duration-300">ایجاد تسک </a></li>
+                    <li><p class="text-yellow-400 transition-colors  font-bold duration-300">  Task Manager</p></li>
+
+                </ul>
+            </nav>
+        </div>
+
+
+
   </header>
 
 </body>

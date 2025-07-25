@@ -1,21 +1,19 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\sessionController;
 use App\Http\Controllers\TaskController;
 use App\Models\Task;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
-//Route::controller(TaskController::class)->group(function (){
-//    Route::get('/','index')->name('task.index');
-//    Route::get('/tasks/create','create')->name('tasks.create');
-//    Route::post('/tasks','store')->name('tasks.store');
-//    Route::get('/tasks/{task}/edit','edit')->name('tasks.edit');
-//    Route::patch('tasks/{task}','update')->name('tasks.update');
-//    Route::delete('tasks/{task}','destroy')->name('tasks.destroy');
-//});
+
 Route::resource('tasks', TaskController::class);
 
-Route::get('/register',[RegisteredUserController::class,'create']);
+Route::get('/register',[RegisteredUserController::class,'create'])->name('register');
+Route::post('/register',[RegisteredUserController::class,'store'])->name('register.store');
+Route::get('/login',[sessionController::class,'create'])->name('login');
+Route::post('/login',[sessionController::class,'store'])->name('login.store');
 
 
 
