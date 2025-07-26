@@ -15,14 +15,18 @@
         @csrf
         <x-form-field>
             <x-form-label for="email">ایمیل</x-form-label>
-            <x-form-input name="email" type="email" required />
-            <x-form-error name="email"/>
+            <x-form-input name="email" type="email" :value="old('email')" required />
+
         </x-form-field>
         <x-form-field>
             <x-form-label for="password">رمز عبور</x-form-label>
             <x-form-input name="password" type="password" required />
-            <x-form-error name="password"/>
+
         </x-form-field>
+        <div class="flex justify-center">
+            <x-form-error name="email"/>
+        </div>
+
 
         <div class="flex justify-between">
             <div class="text-center">

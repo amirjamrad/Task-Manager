@@ -37,9 +37,9 @@
             <x-form-error name="password"/>
         </x-form-field>
         <x-form-field>
-            <x-form-label for="confirm_password">تکرار رمزعبور</x-form-label>
-            <x-form-input name="confirm_password" type="password" required />
-            <x-form-error name="confirm_password"/>
+            <x-form-label for="password_confirmation">تکرار رمزعبور</x-form-label>
+            <x-form-input name="password_confirmation" type="password" required />
+            <x-form-error name="password_confirmation"/>
         </x-form-field>
         <div class="flex justify-between ">
             <div class="text-center">

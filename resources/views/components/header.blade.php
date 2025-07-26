@@ -15,9 +15,16 @@
         <div class="text-center mr-5">
             <nav>
                 <ul class="flex space-x-8 text-lg font-medium">
+                    @guest
                     <li><a href="{{route('register')}}" class="hover:text-yellow-400 transition-colors duration-300">ثبت نام</a></li>
                     <li><a href="{{route('login')}}" class="hover:text-yellow-400 transition-colors duration-300">ورود</a></li>
-
+                    @endguest
+                    @auth
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <x-form-button>خروج</x-form-button>
+                            </form>
+                        @endauth
 
                 </ul>
             </nav>
